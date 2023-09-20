@@ -46,7 +46,7 @@ To get started with this project, follow the steps below.
 
 Before you begin, ensure you have met the following requirements:
 
-- Node.js (version x.x.x)
+- Node.js (version 18x)
 - PostgreSQL database
 - Stripe API keys (for payment processing)
 - Prisma CLI (optional, for database migrations)
