@@ -5,7 +5,6 @@ generator client {
 }
 
 // Define your database connection URL in your .env file
-// DATABASE_URL=""
 
 datasource db {
   provider = "postgresql"

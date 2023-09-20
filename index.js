@@ -1,5 +1,5 @@
 // src/index.js
-
+require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
@@ -10,9 +10,11 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 const app = express();
 
+const secretKEY = process.env.JWT_SECRET
+
 // Middleware setup
 app.use(express.json());
-app.use(session({ secret: '6410bc26488e9d552772c509df99346c <def hide this!!!!>', resave: false, saveUninitialized: false }));
+app.use(session({ secret: secretKEY, resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -33,14 +35,13 @@ passport.deserializeUser(async (id, done) => {
   done(null, user);
 });
 
-const authMiddleware = require('./middleware/authMiddleware');
+const authMiddleware = require('./src/middleware/authMiddleware');
+const jwtToken = require('./src/middleware/jwtMiddleware');
 
 // Middleware route
-app.use(authMiddleware)
-
+app.use(authMiddleware.isAuthenticated)
 // Protect routes with JWT authentication middleware
-const jwtMiddleware = require('./src/middleware/jwtMiddleware');
-app.use(jwtMiddleware) // apply jwtMiddleware to all routes
+app.use(jwtToken) // apply jwtMiddleware to all routes
 
 // Include and use your routes
 const authRoutes = require('./src/routes/authRoutes');
