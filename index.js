@@ -12,7 +12,7 @@ const app = express();
 
 // Middleware setup
 app.use(express.json());
-app.use(session({ secret: '6410bc26488e9d552772c509df99346c', resave: false, saveUninitialized: false }));
+app.use(session({ secret: '6410bc26488e9d552772c509df99346c <def hide this!!!!>', resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -38,19 +38,16 @@ const authMiddleware = require('./middleware/authMiddleware');
 // Middleware route
 app.use(authMiddleware)
 
+// Protect routes with JWT authentication middleware
+const jwtMiddleware = require('./src/middleware/jwtMiddleware');
+app.use(jwtMiddleware) // apply jwtMiddleware to all routes
+
 // Include and use your routes
 const authRoutes = require('./src/routes/authRoutes');
 const cartRoutes = require('./src/routes/cartRoutes');
 const productRoutes = require('./src/routes/productRoutes');
 const userRoutes = require('./src/routes/userRoutes');
-const paymentRoutes = require('./src/routes/paymentRoutes'); // Import your paymentRoutes
-const jwtMiddleware = require('./src/middleware/jwtMiddleware'); // Import JWT middleware
-
-// Protect routes with JWT authentication middleware
-app.use('/cart', jwtMiddleware);
-app.use('/products', jwtMiddleware);
-app.use('/user', jwtMiddleware);
-app.use('/payment', jwtMiddleware); // Apply JWT middleware to paymentRoutes
+const paymentRoutes = require('./src/routes/paymentRoutes');
 
 app.use('/auth', authRoutes);
 app.use('/cart', cartRoutes);
