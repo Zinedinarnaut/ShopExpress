@@ -301,3 +301,55 @@ These routes require authentication via JWT token obtained from the login proces
 - **Response:**
   - **Success (200 OK):** Payment completed.
   - **Error (400 Bad Request):** Invalid request or payment failed.
+
+## Todo List for ShopExpress API
+
+### User Authentication:
+- [ ] Create token-based authentication middleware.
+- [ ] Add password hashing for user security.
+
+### Product Management:
+- [ ] Build CRUD endpoints for products (Create, Read, Update, Delete).
+- [ ] Implement product validation to ensure data consistency.
+- [ ] Create a route to fetch a specific product by its ID.
+
+### Shopping Cart:
+- [ ] Implement cart calculations for subtotal and total amounts.
+- [ ] Add cart validation to handle edge cases.
+- [ ] Create a checkout endpoint to finalize cart purchases.
+
+### Payment Integration:
+- [ ] Implement a payment intent creation endpoint.
+- [ ] Develop a payment completion endpoint with support for different payment methods.
+- [ ] Add error handling and logging for payment processes.
+
+### Additional Features:
+- [ ] Implement user profile management (update user details).
+- [ ] Develop user-specific endpoints for managing past orders.
+- [ ] Add product categories and filtering options.
+- [ ] Implement user reviews and ratings for products.
+
+### Testing and Quality Assurance:
+- [ ] Write unit tests for API routes and functions.
+- [ ] Set up automated testing workflows (e.g., using Jest or Mocha).
+- [ ] Perform security testing to identify and fix vulnerabilities.
+- [ ] Conduct load testing to ensure API scalability.
+
+### Deployment and Scaling:
+- [ ] Deploy the API to a production server (e.g., AWS, Heroku).
+- [ ] Configure scaling options to handle increased traffic.
+- [ ] Set up monitoring and alerting for server health.
+
+### User Interface (Frontend):
+- [ ] Create a user registration page with Bootstrap.
+- [ ] Develop product listing and shopping cart interfaces.
+- [ ] Integrate API endpoints with the frontend for a seamless user experience.
+
+### Contributing and Version Control:
+- [ ] Set up a version control system (e.g., Git) for collaborative development.
+- [ ] Define contribution guidelines for external contributors.
+- [ ] Review and merge pull requests from the community.
+
+### License and Legal:
+- [ ] Choose and apply an open-source license for the project.
+- [ ] Ensure compliance with any legal requirements for payment processing.
