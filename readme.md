@@ -56,6 +56,8 @@ To get started with ShopExpress, you'll need:
    JWT_SECRET=your-secret-key
    ```
 
+   Get your JWT Secret here: https://generate.araxyso.xyz
+
 4. Run the API:
 
    ```bash
