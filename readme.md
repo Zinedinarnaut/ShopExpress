@@ -98,20 +98,6 @@ Document your API endpoints with descriptions, sample requests, and responses. H
 - **POST /cart**: Add a product to the user's cart.
 - **POST /payment/checkout**: Process a payment using Stripe.
 
-Include more endpoints and descriptions as needed for your project.
-
-## Database Schema
-
-Describe your database schema, including tables, relationships, and data models. You can provide an ER diagram or a textual description.
-
-## Authentication
-
-Explain how authentication works in your project. Describe the authentication process, including user registration, login, and JWT token generation.
-
-## Stripe Integration
-
-Detail the integration of Stripe for processing payments. Include instructions on setting up your Stripe account, configuring the API keys, and handling payments.
-
 ## Contributing
 
 Contributions are welcome! You can contribute to this project by following our [Contribution Guidelines](CONTRIBUTING.md).
