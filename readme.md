@@ -2,14 +2,14 @@
 
 ShopExpress is a modern and versatile API designed to power e-commerce applications. It provides a comprehensive set of endpoints for managing users, products, shopping carts, and payments. ShopExpress is built with security in mind, incorporating features like user authentication and JWT token protection.
 
-Key Features
+## Key Features
 
-	•	User Management: Register, log in, and log out users securely. Protect routes with JWT token authentication.
-	•	Product Catalog: Create, update, delete, and retrieve product details. Maintain a catalog of available products.
-	•	Shopping Cart: Add, update, and remove products from a shopping cart. Calculate totals and handle checkout processes.
-	•	Payment Integration: Seamlessly integrate payment services to facilitate transactions. Currently supports Stripe payments.
-	•	Documentation: Detailed documentation available for each endpoint, making it easy for developers to get started.
-	•	Bootstrap Integration: Designed with frontend frameworks like Bootstrap in mind, making it straightforward to create user interfaces.
+- **User Management:** Register, log in, and log out users securely. Protect routes with JWT token authentication.
+- **Product Catalog:** Create, update, delete, and retrieve product details. Maintain a catalog of available products.
+- **Shopping Cart:** Add, update, and remove products from a shopping cart. Calculate totals and handle checkout processes.
+- **Payment Integration:** Seamlessly integrate payment services to facilitate transactions. Currently supports Stripe payments.
+- **Documentation:** Detailed documentation available for each endpoint, making it easy for developers to get started.
+- **Bootstrap Integration:** Designed with frontend frameworks like Bootstrap in mind, making it straightforward to create user interfaces.
 
 ShopExpress simplifies the development of e-commerce applications, allowing you to focus on building a great shopping experience for your users.
 
@@ -28,9 +28,11 @@ ShopExpress simplifies the development of e-commerce applications, allowing you 
 
 ### Prerequisites
 
+To get started with ShopExpress, you'll need:
+
 - Node.js and npm (Node Package Manager)
-- Database (e.g., PostgreSQL, MySQL)
-- `.env` file with configuration (example provided)
+- A database (e.g., PostgreSQL, MySQL)
+- A `.env` file with configuration (example provided)
 
 ### Installation
 
@@ -64,245 +66,238 @@ ShopExpress simplifies the development of e-commerce applications, allowing you 
 
 ### Authentication Routes
 
-Register User
+#### Register User
 
-	•	URL: /auth/register
-	•	Method: POST
-	•	Description: Register a new user.
-	•	Request Body:
-	•	username (string): User’s username
-	•	password (string): User’s password
-	•	email (string): User’s email
-	•	fullName (string): User’s full name
-	•	Example Request Body:
-```
-{
-  "username": "newuser",
-  "password": "password123",
-  "email": "user@example.com",
-  "fullName": "New User"
-}
-```
+- **URL:** `/auth/register`
+- **Method:** `POST`
+- **Description:** Register a new user.
+- **Request Body:**
+  - `username` (string): User’s username
+  - `password` (string): User’s password
+  - `email` (string): User’s email
+  - `fullName` (string): User’s full name
+- **Example Request Body:**
 
-	•	Response:
-	•	Success (200 OK): User registered successfully.
-	•	Error (400 Bad Request): Invalid request parameters or user already exists.
+  ```json
+  {
+    "username": "newuser",
+    "password": "password123",
+    "email": "user@example.com",
+    "fullName": "New User"
+  }
+  ```
 
-Login User
+- **Response:**
+  - **Success (200 OK):** User registered successfully.
+  - **Error (400 Bad Request):** Invalid request parameters or user already exists.
 
-	•	URL: /auth/login
-	•	Method: POST
-	•	Description: Log in a user and obtain an access token.
-	•	Request Body:
-	•	username (string): User’s username
-	•	password (string): User’s password
-	•	Example Request Body:
+#### Login User
 
-{
-  "username": "existinguser",
-  "password": "password123"
-}
+- **URL:** `/auth/login`
+- **Method:** `POST`
+- **Description:** Log in a user and obtain an access token.
+- **Request Body:**
+  - `username` (string): User’s username
+  - `password` (string): User’s password
+- **Example Request Body:**
 
+  ```json
+  {
+    "username": "existinguser",
+    "password": "password123"
+  }
+  ```
 
-	•	Response:
-	•	Success (200 OK): User logged in successfully, and an access token is provided.
-	•	Error (401 Unauthorized): Invalid credentials.
+- **Response:**
+  - **Success (200 OK):** User logged in successfully, and an access token is provided.
+  - **Error (401 Unauthorized):** Invalid credentials.
 
-Logout User
+#### Logout User
 
-	•	URL: /auth/logout
-	•	Method: GET
-	•	Description: Log out the currently authenticated user.
-	•	Response:
-	•	Success (200 OK): User logged out successfully.
+- **URL:** `/auth/logout`
+- **Method:** `GET`
+- **Description:** Log out the currently authenticated user.
+- **Response:**
+  - **Success (200 OK):** User logged out successfully.
 
-Refresh Token
+#### Refresh Token
 
-	•	URL: /auth/token
-	•	Method: POST
-	•	Description: Obtain a new JWT token after it has expired. (Optional)
-	•	Response:
-	•	Success (200 OK): A new JWT token is provided.
+- **URL:** `/auth/token`
+- **Method:** `POST`
+- **Description:** Obtain a new JWT token after it has expired. (Optional)
+- **Response:**
+  - **Success (200 OK):** A new JWT token is provided.
 
-Other Routes
+### Other Routes
 
 These routes require authentication via JWT token obtained from the login process.
 
-User Routes
+#### User Routes
 
-Get User Profile
+##### Get User Profile
 
-	•	URL: /user/profile
-	•	Method: GET
-	•	Description: Get the user’s profile information.
-	•	Response:
-	•	Success (200 OK): User profile data.
-	•	Error (401 Unauthorized): User is not authenticated.
+- **URL:** `/user/profile`
+- **Method:** `GET`
+- **Description:** Get the user’s profile information.
+- **Response:**
+  - **Success (200 OK):** User profile data.
+  - **Error (401 Unauthorized):** User is not authenticated.
 
-Update User Profile
+##### Update User Profile
 
-	•	URL: /user/profile
-	•	Method: PUT
-	•	Description: Update the user’s profile information.
-	•	Request Body (example):
+- **URL:** `/user/profile`
+- **Method:** `PUT`
+- **Description:** Update the user’s profile information.
+- **Request Body (example):**
 
-{
-  "email": "newemail@example.com",
-  "fullName": "Updated User"
-}
+  ```json
+  {
+    "email": "newemail@example.com",
+    "fullName": "Updated User"
+  }
+  ```
 
+- **Response:**
+  - **Success (200 OK):** User profile updated successfully.
+  - **Error (401 Unauthorized):** User is not authenticated.
 
-	•	Response:
-	•	Success (200 OK): User profile updated successfully.
-	•	Error (401 Unauthorized): User is not authenticated.
+#### Product Routes
 
-Product Routes
+##### Get All Products
 
-Get All Products
+- **URL:** `/products`
+- **Method:** `GET`
+- **Description:** Get a list of all available products.
+- **Response:**
+  - **Success (200 OK):** List of products.
 
-	•	URL: /products
-	•	Method: GET
-	•	Description: Get a list of all available products.
-	•	Response:
-	•	Success (200 OK): List of products.
+##### Get Product by ID
 
-Get Product by ID
+- **URL:** `/products/:id`
+- **Method:** `GET`
+- **Description:** Get details of a specific product by its ID.
+- **Response:**
+  - **Success (200 OK):** Product details.
+  - **Error (404 Not Found):** Product not found.
 
-	•	URL: /products/:id
-	•	Method: GET
-	•	Description: Get details of a specific product by its ID.
-	•	Response:
-	•	Success (200 OK): Product details.
-	•	Error (404 Not Found): Product not found.
+##### Create New Product
 
-Create New Product
+- **URL:** `/products`
+- **Method:** `POST`
+- **Description:** Create a new product.
+- **Request Body (example):**
 
-	•	URL: /products
-	•	Method: POST
-	•	Description: Create a new product.
-	•	Request Body (example):
+  ```json
+  {
+    "name": "New Product",
+    "description": "Product description",
+    "price": 29.99
+  }
+  ```
 
-{
-  "name": "New Product",
-  "description": "Product description",
-  "price": 29.99
-}
+- **Response:**
+  - **Success (201 Created):** New product created.
+  - **Error (400 Bad Request):** Invalid product data.
 
+##### Update Product by ID
 
-	•	Response:
-	•	Success (201 Created): New product created.
-	•	Error (400 Bad Request): Invalid product data.
+- **URL:** `/products/:id`
+- **Method:** `PUT`
+- **Description:** Update an existing product by its ID.
+- **Request Body (example):**
 
-Update Product by ID
+  ```json
+  {
+    "name": "Updated Product",
+    "description": "Updated description",
+    "price": 39.99
+  }
+  ```
 
-	•	URL: /products/:id
-	•	Method: PUT
-	•	Description: Update an existing product by its ID.
-	•	Request Body (example):
+- **Response:**
+  - **Success (200 OK):** Product updated successfully.
+  - **Error (400 Bad Request):** Invalid product data.
+  - **Error (404 Not Found):** Product not found.
 
-{
-  "name": "Updated Product",
-  "description": "Updated description",
-  "price": 39.99
-}
+##### Delete Product by ID
 
+- **URL:** `/products/:id`
+- **Method:** `DELETE`
+- **Description:** Delete a product by its ID.
+- **Response:**
+  - **Success (204 No Content):** Product deleted successfully.
+  - **Error (404 Not Found):** Product not found.
 
-	•	Response:
-	•	Success (200 OK): Product updated successfully.
-	•	Error (400 Bad Request): Invalid product data.
-	•	Error (404 Not Found): Product not found.
+#### Cart Routes
 
-Delete Product by ID
+##### Get User Cart
 
-	•	URL: /products/:id
-	•	Method: DELETE
-	•	Description: Delete a product by its ID.
-	•	Response:
-	•	Success (204 No Content): Product deleted successfully.
-	•	Error (404 Not Found): Product not found.
+- **URL:** `/cart`
+- **Method:** `GET`
+- **Description:** Get the contents of the user’s shopping cart.
+- **Response:**
+  - **Success (200 OK):** List of cart items.
 
-Cart Routes
+##### Add Product to Cart
 
-Get User Cart
+- **URL:** `/cart/add/:productId`
+- **Method:** `POST`
+- **Description:** Add a product to the user’s shopping cart by its ID.
+- **Response:**
+  - **Success (200 OK):** Product added to the cart.
+  - **Error (400 Bad Request):** Invalid request or product not found.
 
-	•	URL: /cart
-	•	Method: GET
-	•	Description: Get the contents of the user’s shopping cart.
-	•	Response:
-	•	Success (200 OK): List of cart items.
+##### Update Cart Item Quantity
 
-Add Product to Cart
+- **URL:** `/cart/update/:productId`
+- **Method:** `PUT`
+- **Description:** Update the quantity of a cart item by its product ID.
+- **Request Body (example):**
 
-	•	URL: /cart/add/:productId
-	•	Method: POST
-	•	Description: Add a product to the user’s shopping cart by its ID.
-	•	Response:
-	•	Success (200 OK): Product added to the cart.
-	•	Error (400 Bad Request): Invalid request or product not found.
+  ```json
+  {
+    "quantity": 3
+  }
+  ```
 
-Update Cart Item Quantity
+- **Response:**
+  - **Success (200 OK):** Cart item quantity updated.
+  - **Error (400 Bad Request):** Invalid request or product not found.
 
-	•	URL: /cart/update/:productId
-	•	Method: PUT
-	•	Description: Update the quantity of a cart item by its product ID.
-	•	Request Body (example):
+##### Remove Product from Cart
 
-{
-  "quantity": 3
-}
+- **URL:** `/cart/remove/:productId`
+- **Method:** `DELETE`
+- **Description:** Remove a product from the user’s shopping cart by its product ID.
+- **Response:**
+  - **Success (204 No Content):** Product removed from the cart.
+  - **Error (404 Not Found):** Product not found.
 
+#### Payment Routes
 
-	•	Response:
-	•	Success (200 OK): Cart item quantity updated.
-	•	Error (400 Bad Request): Invalid request or product not found.
+##### Create Payment Intent
 
-Remove Product from Cart
+- **URL:** `/payment/create-intent`
+- **Method:** `POST`
+- **Description:** Create a payment intent for the user’s cart.
+- **Response:**
+  - **Success (200 OK):** Payment intent created.
+  - **Error (400 Bad Request):** Invalid request or cart is empty.
 
-	•	URL: /cart/remove/:productId
-	•	Method: DELETE
-	•	Description: Remove a product from the user’s shopping cart by its product ID.
-	•	Response:
-	•	Success (204 No Content): Product removed from the cart.
-	•	Error (404 Not Found): Product not found.
+##### Complete Payment
 
-Payment Routes
+- **URL:** `/payment/complete`
+- **Method:** `POST`
+- **Description:** Complete the payment process.
+- **Request Body (example):**
 
-Create Payment Intent
+  ```json
+  {
+    "paymentMethodId": "pm_card_visa",
+    "currency": "usd"
+  }
+  ```
 
-	•	URL: /payment/create-intent
-	•	Method: POST
-	•	Description: Create a payment intent for the user’s cart.
-	•	Response:
-	•	Success (200 OK): Payment intent created.
-	•	Error (400 Bad Request): Invalid request or cart is empty.
-
-Complete Payment
-
-	•	URL: /payment/complete
-	•	Method: POST
-	•	Description: Complete the payment process.
-	•	Request Body (example):
-
-{
-  "paymentMethodId": "pm_card_visa",
-  "currency": "usd"
-}
-
-
-	•	Response:
-	•	Success (200 OK): Payment completed.
-	•	Error (400 Bad Request): Invalid request or payment failed.
-
-This documentation provides a comprehensive overview of the routes and endpoints available in your ShopExpress API. 
-
-## Contributing
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Make your changes and commit them.
-4. Push your changes to your fork.
-5. Submit a pull request to the original repository.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- **Response:**
+  - **Success (200 OK):** Payment completed.
+  - **Error (400 Bad Request):** Invalid request or payment failed.
