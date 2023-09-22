@@ -62,7 +62,7 @@ ShopExpress simplifies the development of e-commerce applications, allowing you 
 
 ## Usage
 
-Authentication Routes
+### Authentication Routes
 
 Register User
 
@@ -75,14 +75,14 @@ Register User
 	•	email (string): User’s email
 	•	fullName (string): User’s full name
 	•	Example Request Body:
-
+```
 {
   "username": "newuser",
   "password": "password123",
   "email": "user@example.com",
   "fullName": "New User"
 }
-
+```
 
 	•	Response:
 	•	Success (200 OK): User registered successfully.
