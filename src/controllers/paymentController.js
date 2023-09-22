@@ -1,6 +1,6 @@
 // src/controllers/paymentController.js
 
-const stripe = require('stripe')('your-stripe-secret-key');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 // Create a payment intent
 const createPaymentIntent = async (req, res) => {
