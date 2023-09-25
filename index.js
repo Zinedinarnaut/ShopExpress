@@ -49,12 +49,14 @@ const cartRoutes = require('./src/routes/cartRoutes');
 const productRoutes = require('./src/routes/productRoutes');
 const userRoutes = require('./src/routes/userRoutes');
 const paymentRoutes = require('./src/routes/paymentRoutes');
+const stockRoutes = require('./src/routes/stockRoutes.js')
 
 app.use('/auth', authRoutes);
 app.use('/cart', cartRoutes);
 app.use('/products', productRoutes);
 app.use('/user', userRoutes);
 app.use('/payment', paymentRoutes); // Use paymentRoutes
+app.use('/api', stockRoutes);
 
 // Start the server
 const port = process.env.PORT || 3055;
