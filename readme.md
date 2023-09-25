@@ -54,6 +54,7 @@ To get started with ShopExpress, you'll need:
    PORT=3055
    DATABASE_URL=your-database-url
    JWT_SECRET=your-secret-key
+   STRIPE_SECRET_KEY=your-stripe-secret-key
    ```
 
    Get your JWT Secret here: https://generate.araxyso.xyz
